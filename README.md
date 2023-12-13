@@ -40,3 +40,6 @@
 13. Add your allauth setup
 
 14. Deploy to Heroku/Render
+
+## ERD 
+![Alt text for the ERD](URL_of_the_ERD_image)

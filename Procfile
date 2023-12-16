@@ -1,0 +1,1 @@
+web: gunicorn veggieswap.wsgi:application

@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://project-4-veggieswap-9bdee0e3dd28.herokuapp.com/",
+    'project-4-veggieswap-9bdee0e3dd28.herokuapp.com',
     "127.0.0.1",
     "localhost",
 ]

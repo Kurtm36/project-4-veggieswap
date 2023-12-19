@@ -1,44 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.utils.text import slugify
+
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Post Model
-
 
 class Post(models.Model):
-    # Basic Post information
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-    slug = models.SlugField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    featured_image = CloudinaryField("image", default="placeholder")
     excerpt = models.TextField(blank=True)
-
-    # Author of the Post
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user_posts"
-    )
-
-    # Summary field
-    summary = models.CharField(max_length=500, blank=True)
-
-    # Status Field
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-
-    # Metadata
-    created_at = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name="blogpost_like", blank=True)
 
     class Meta:
-        ordering = ["-created_at"]
-
-    # Save
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title, allow_unicode=True)
-        super().save(*args, **kwargs)
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
 
 
 class Comment(models.Model):
@@ -51,8 +37,6 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ["created_on"]
-        
+
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-
-  

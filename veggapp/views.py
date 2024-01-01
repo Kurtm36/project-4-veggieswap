@@ -10,4 +10,5 @@ class Post(generic.ListView):
     paginate_by = 6
     
 def home(request):
-    return render(request, 'index.html')    
+    return render(request, 'index.html')   
+

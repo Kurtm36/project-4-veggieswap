@@ -5,6 +5,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+## POST MODEL
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -26,6 +27,7 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+## COMMENT MODEL
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
@@ -40,3 +42,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+    
+    
+## Item Model
+
+class item(models.Model):
+    item_name = models.CharField(max_length=200)
+    item_description = models.TextField(max_length=200)
+    item_price = models.IntegerField()
+    item_image = CloudinaryField("image", default="placeholder")

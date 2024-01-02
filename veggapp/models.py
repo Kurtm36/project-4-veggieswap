@@ -46,8 +46,9 @@ class Comment(models.Model):
     
 ## Item Model
 
-class item(models.Model):
+class user_item(models.Model):
     item_name = models.CharField(max_length=200)
+    item_price = models.FloatField()
     item_description = models.TextField(max_length=200)
-    item_price = models.IntegerField()
+    item_catagory = models.CharField(max_length=200)
     item_image = CloudinaryField("image", default="placeholder")

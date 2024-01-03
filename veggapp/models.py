@@ -11,7 +11,9 @@ CATAGORY = ((0, "Fruit"), (1, "Vegatable"), (2, "Plant"))
 
 class UserPost(models.Model):
     title = models.CharField(max_length=200, unique=True)
+    price = models.FloatField(default=0)
     slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts", default=1)
     featured_image = CloudinaryField("image", default="placeholder")
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -25,9 +27,6 @@ class UserPost(models.Model):
 
     def __str__(self):
         return self.title
-
-    def number_of_likes(self):
-        return self.likes.count()
 
 ## COMMENT MODEL
 

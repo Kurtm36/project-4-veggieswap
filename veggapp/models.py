@@ -15,6 +15,7 @@ class UserPost(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_posts", default=1)
     featured_image = CloudinaryField("image", default="placeholder")
+    placeholder_image = models.CharField(max_length=300, default=0)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

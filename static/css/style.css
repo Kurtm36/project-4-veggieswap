@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
   }
-/**Post container**/
+/**User Post container**/
 .container {
 
 }
@@ -42,31 +42,28 @@ img{
 
 .navbar {
     background-color: #4c9f70; /* Background color of the navbar */
-    border-bottom: 1px solid #ccc; /* Optional border at the bottom */
-    padding: 10px; /* Add padding to the navbar */
+    border-bottom: 1px solid #ccc; 
+    padding: 10px; 
   }
-  
-  .navbar-brand {
+ 
+ 
+.navbar-brand {
     font-size: 24px; /* Customize the font size of the brand/logo */
     font-weight: bold; /* Optionally make the brand text bold */
     color: #f1f3f9; /* Brand text color */
   }
   
-  .navbar-toggler {
+.navbar-toggler {
     border: none; 
   }
   
   /* Navbar links */
-  .navbar-nav a.nav-link {
-    color: #333; /* Link text color */
+.navbar-nav a.nav-link {
+    color: #f1f3f9; /* Link text color */
   }
   
   /* Active link styles */
-  .navbar-nav a.nav-link.active {
-    font-weight: bold; /* Make the active link text bold */
+.navbar-nav a.nav-link.active {
+    font-weight: bold; 
   }
   
-  
-  .navbar-nav a.nav-link:hover {
-    color: #f1f3f9; /* Hover color for links */
-  }

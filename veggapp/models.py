@@ -17,7 +17,7 @@ class UserPost(models.Model):
     featured_image = CloudinaryField("image", default="placeholder")
     placeholder_image = models.CharField(max_length=300, default=0)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = models.Field(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     catagory = models.IntegerField(choices=CATAGORY, default=0)

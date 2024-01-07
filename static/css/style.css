@@ -1,21 +1,72 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-}
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+/**Post container**/
+.container {
 
-img {
-    display: block;
-    width: 350%;
-    height: 100%;
-    object-fit: cover;
 }
-
-.card{
-    color:red;
-    font-size: 20px;
+/*** Card ***/
+.card {
+    font-size: 15px;
     font-weight: bold;
-    width:100px;
-    margin: 0;
+    width: 20rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    text-align: left;
 }
+
+.card-title{
+    font-weight: 900;
+}
+
+.card-text{
+    color: green;
+    font-size: 30px;
+    text-align: right;
+    font-weight: 800;;
+}
+
+img{
+    width: 100%;
+    
+}
+
+/*** Navbar ***/
+
+.navbar {
+    background-color: #4c9f70; /* Background color of the navbar */
+    border-bottom: 1px solid #ccc; /* Optional border at the bottom */
+    padding: 10px; /* Add padding to the navbar */
+  }
+  
+  .navbar-brand {
+    font-size: 24px; /* Customize the font size of the brand/logo */
+    font-weight: bold; /* Optionally make the brand text bold */
+    color: #f1f3f9; /* Brand text color */
+  }
+  
+  .navbar-toggler {
+    border: none; 
+  }
+  
+  /* Navbar links */
+  .navbar-nav a.nav-link {
+    color: #333; /* Link text color */
+  }
+  
+  /* Active link styles */
+  .navbar-nav a.nav-link.active {
+    font-weight: bold; /* Make the active link text bold */
+  }
+  
+  
+  .navbar-nav a.nav-link:hover {
+    color: #f1f3f9; /* Hover color for links */
+  }

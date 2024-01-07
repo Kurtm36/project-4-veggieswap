@@ -10,26 +10,48 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.5.0/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>LOADED</h1>
     <!-- Navigation Bar -->
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">VEGGIESWAP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Features</a>
+            <a class="nav-item nav-link" href="#">Pricing</a>
+            <a class="nav-item nav-link " href="#">Disabled</a>
+          </div>
+        </div>
+      </nav>
     <!-- Content Section -->
     <main>
         <section>
             <div class="container">
-                <div class = "row">
+                <!--Search Bar -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-sm">
+                            <div class="card-body row no-gutters align-items-center">
+                                <div class ="col">
+                                    <input type="Search" name="user_posts." placeholder="Search for Posts !" class ="form-control form-control-borderless">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--User Posts-->
+                <div class="row">
                     {% for post in user_posts %}
-                    <div class = "col-md-3">
-                        <div class = "card">
-                                    <!--{{post.featured_image}}-->
-                            <img src="static\images\celery.jpg" alt="placeholder till cloudinary" class = "card-img-top">
+                    <div class="col-md-4 ">
+                        <div class="card">
+                            <img src="{{ post.placeholder_image }}" alt="Placeholder till Cloudinary" class="card-img-top">
                             <div class="card-body">
-                                <div class="card-title">
-                                    {{ post.title }}
-                                </div>
-                                <div class="card-text">
-                                    {{ post.content }}
-                                </div>
+                                <h2 class="card-title">
+                                    {{ post.title }}</h5>
+                                <p class="card-text">
+                                    €{{ post.price }}</p>
                             </div>
                         </div>
                     </div>
@@ -37,11 +59,17 @@
                 </div>
             </div>   
         </section>
+        <footer>
+            
+        </footer>
     </main>
     
 
     <!-- Add Bootstrap JS Scripts -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.5.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 </body>
+
+    
 </html>

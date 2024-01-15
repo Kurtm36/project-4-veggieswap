@@ -17,7 +17,7 @@ class UserPost(models.Model):
     featured_image = CloudinaryField("image", default="placeholder")
     placeholder_image = models.CharField(max_length=300, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    excerpt = models.TextField(max_length= 2000 , null=True )
+    excerpt = models.TextField(max_length=2000, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     catagory = models.IntegerField(choices=CATAGORY, default=0)
@@ -28,10 +28,13 @@ class UserPost(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("post_detail", kwargs={"slug": self.slug})
+
 ## COMMENT MODEL
 
 class UserComments(models.Model):
-    post = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(UserPost, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -43,4 +46,3 @@ class UserComments(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-

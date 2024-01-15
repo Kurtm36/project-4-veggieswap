@@ -43,14 +43,15 @@
                     </div>
                 </div>
                 <!--User Posts-->
-                <div class="row">
+                <div class="row d-flex flex-row">
                     {% for post in user_posts %}
                       <div class="col-md-4">
                         <div class="card">
                           <img src="{{ post.placeholder_image }}" alt="Placeholder till Cloudinary" class="card-img-top">
                           <div class="card-body">
                             <h2 class="card-title">
-                              {{ post.title }}</h5>
+                              {{ post.title }}</h2>
+                              {{ post.content }} 
                             <p class="card-text">
                               €{{ post.price }}</p>
                           </div>
@@ -60,11 +61,10 @@
                   </div> 
             </div>   
         </section>
-        <footer>
-            Copyright Kurtm36 
-        </footer>
     </main>
-    
+    <footer>
+    <p>Copyright Kurtm36 </p> 
+  </footer>   
 
     <!-- Add Bootstrap JS Scripts -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.5.0/js/bootstrap.min.js"></script>
